@@ -2,19 +2,81 @@
 
 ----
 
-# gem
+# Ruby at a Glance
+
+- a Programming Language
+- Open Source
+- Designed by Yukihiro Matsumoto
+- Appeared in 1995
+- Stable release 2.1.2 / May 9, 2014
+- Cross-platform
+
+---
+
+# Ruby Features
+
+- Dynamic typing and duck typing
+- Object-oriented
+- Functional
+- Imperative
+- Automatic memory management
+- Modules
+- Mixins
+- Default arguments
+- Metaprogramming
+
+---
+
+# RubyGems
+
+- a Package Manager
+- part of the standard library from Ruby version 1.9
+- 78,439 gems hosted on RubyGems.org on Jul 15, 2014
+- gem command
+  - `gem search rspec`
+  - `gem install rspec`
+  - `gem list`
+  - `gem list rspec -d`
+  - `gem uninstall rspec`
+  - `gem environment gemdir`
+
+---
+
+# What is a gem?
+
+Inside a gems are the following components:
+
+* Code (including tests and supporting utilities)
+* Documentation
+* gemspec
+
+Each gem follows the same standard structure of code organization:
+
+```
+% tree freewill
+freewill/
+├── bin/
+│   └── freewill
+├── lib/
+│   └── freewill.rb
+├── test/
+│   └── test_freewill.rb
+├── README
+├── Rakefile
+└── freewill.gemspec
+```
+
+---
+
+# Rake
 
 ---
 
 # bundle
- 
----
-
-# rbenv/rvm 
 
 ---
 
-# rake
+# rbenv/rvm
 
 ---
 
