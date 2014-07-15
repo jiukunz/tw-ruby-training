@@ -33,11 +33,11 @@ rbenv install 2.1.1          # 安装 ruby 2.1.1
 
 rbenv-update is a plugin to update rbenv and plugins
 
-`
+```
 mkdir -p $RBENV_ROOT/plugins
 git clone https://github.com/rkh/rbenv-update.git $RBENV_ROOT/plugins/rbenv-update
 rbenv update                 #更新rbenv  
-`
+```
 
 #### 一些常用命令
 
