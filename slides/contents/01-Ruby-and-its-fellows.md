@@ -13,7 +13,7 @@
 
 ---
 
-# Ruby Features
+## Ruby Features
 
 - Dynamic typing and duck typing
 - Object-oriented
@@ -42,15 +42,13 @@
 
 ---
 
-# What is a gem?
+## What is a gem?
 
-Inside a gems are the following components:
-
-* Code (including tests and supporting utilities)
-* Documentation
-* gemspec
-
-Each gem follows the same standard structure of code organization:
+- Inside a gems are the following components:
+  * Code (including tests and supporting utilities)
+  * Documentation
+  * gemspec
+- Each gem follows the same standard structure of code organization:
 
 ```
 % tree freewill
@@ -70,13 +68,106 @@ freewill/
 
 # Rake
 
+- a Make-like program implemented in Ruby
+- written in the Ruby programming language and use Ruby syntax
+- part of the standard library from Ruby version 1.9 onward
+
+---
+
+## rake command
+
+- `rake`
+
+  run the "default" task in the Rakefile
+- `rake -T`
+
+  Display a list of the major tasks and their comments
+- `rake -P`
+
+  Display a list of all tasks and their immediate prerequisites
+- `rake name`
+- `rake name[Wei,Zheng]`
+- `--rakelibdir rakelibdir (-R)`
+
+  Auto-import any .rake files in RAKELIBDIR. (default is 'rakelib')
+
+---
+
+## Rakefile
+
+you must write a "Rakefile" file which contains the build rules
+
+### Simple Tasks
+
+```ruby
+task :name
+```
+
+### Tasks with Prerequisites
+
+```ruby
+task :name => [:prereq1, :prereq2]
+```
+### Simple Example
+
+```ruby
+task :default => [:test]
+
+task :test do
+  puts "Hello World!"
+end
+```
+
+---
+
+### Tasks with Arguments
+
+```ruby
+task :name, [:first_name, :last_name] do |t, args|
+  args.with_defaults(:first_name => "Xi", :last_name => "Qi")
+  puts "First name is #{args.first_name}"
+  puts "Last  name is #{args.last_name}"
+end
+```
+
+#### Have Prerequisites
+
+```ruby
+task :name, [:first_name, :last_name] => [:pre_name]
+```
+
+---
+### Comments
+```ruby
+desc "Print 'Hello world!'"
+task :hello do
+	puts "Hello world!"
+end
+```
+
+### Namespaces
+```ruby
+namespace "main" do
+  task :build do
+    puts "main build"
+  end
+end
+
+namespace "samples" do
+  task :test => "main:build" do
+    puts "samples test"
+  end
+end
+```
+
+---
+
+# rbenv
+
 ---
 
 # bundle
 
----
-
-# rbenv/rvm
 
 ---
 
