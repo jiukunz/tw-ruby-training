@@ -31,9 +31,7 @@ rbenv install 2.1.1          # 安装 ruby 2.1.1
 
 #### Install [rbenv-update](https://github.com/rkh/rbenv-update)
 
-```
 rbenv-update is a plugin to update rbenv and plugins
-
 
 #### 一些常用命令
 
