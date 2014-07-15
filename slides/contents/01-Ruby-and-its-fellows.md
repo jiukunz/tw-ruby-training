@@ -164,6 +164,68 @@ end
 
 # rbenv
 
+- use different rubies in a manner that won't mess with your existing ruby install
+- guarantee that your development environment matches production
+- letting you run multiple different rubies in seperate terminals concurrently
+
+---
+
+## How It Works
+
+- Understanding PATH
+
+- Understanding Shims
+
+- Choosing the Ruby Version
+  - rbenv shell
+  - rbenv local
+  - rbenv global
+
+---
+
+## Installation
+
+```
+brew install rbenv ruby-build rbenv-gemset
+```
+Afterwards you'll still need to add eval "$(rbenv init -)" to your profile as stated in the caveats. You'll only ever have to do this once.
+
+---
+
+### oh-my-zsh
+
+- `subl ~/.zshrc`
+
+```
+plugins=(git sublime rbenv)
+```
+
+---
+
+## rbenv command
+
+- `rbenv install -l`
+- `rbenv install 2.1.2`
+- `rbenv local 2.1.2`
+- `rbenv rehash`
+
+  Run this command after you install a new version of Ruby, or install a gem that provides commands
+- `.ruby-gemset`
+
+---
+
+## rbenv which
+
+- `rbenv versions`
+- `rbenv which ruby`
+- `rbenv gemset active`
+
+---
+
+# Ruby Version Manager (RVM)
+
+RVM is a command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems.
+
 ---
 
 # bundle
