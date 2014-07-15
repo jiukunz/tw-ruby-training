@@ -88,7 +88,7 @@ freewill/
 
 ---
 
-# 酷炫的东西!
+# **酷炫的东西!**
 
 ---
 
@@ -187,13 +187,21 @@ cat 1.txt |ruby -lne 'puts $_.reverse'
 ```
 ---
 
-# Homework
+## **FizzBuzz**
 
-* 写一个marsrover, 
-* reservation, 
-* 罗马数字,
- 
-<small>**PS: 带rspec测试**</small>
+homework
+
+>Return "fizz", "buzz" or "fizzbuzz".
+>
+>For a given natural number greater zero return
+>
+>"fizz" if the number is dividable by 3
+>"buzz" if the number is dividable by 5
+>"fizzbuzz" if the number is dividable by 15
+
+<small>**PS: Tdd with rspec, Rake is bonus! **</small>
+
+
 
 
 
