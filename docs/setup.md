@@ -44,7 +44,7 @@ rbenv whence irb             # 列出包含 irb 这个命令的版本
 
 ## Bundler
 
-Install Bundler
+#### Install Bundler
 
 ```
 gem install bundler
