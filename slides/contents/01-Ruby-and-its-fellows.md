@@ -589,6 +589,7 @@ homework
 ## **Resource** 
 
 - https://github.com/jiukunz/tw-ruby-training
+- http://tryruby.org/
 
 
 
