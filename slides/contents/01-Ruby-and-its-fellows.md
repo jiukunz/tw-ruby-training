@@ -38,6 +38,22 @@
 
 ---
 
+# irb
+- Interactive Ruby Shell
+- an interactive command-line interpreter
+
+```bash
+$ irb
+irb(main):001:0> puts "Hello, World"
+Hello, World
+=> nil
+irb(main):002:0> 1+2
+=> 3
+```
+
+
+---
+
 # RubyGems
 
 - a Package Manager
@@ -61,7 +77,7 @@
   * gemspec
 - Each gem follows the same standard structure of code organization:
 
-```
+```bash
 % tree freewill
 freewill/
 ├── bin/
@@ -69,7 +85,7 @@ freewill/
 ├── lib/
 │   └── freewill.rb
 ├── test/
-│   └── freewill_test.rb
+│   └── freewill_spec.rb
 ├── README
 ├── Rakefile
 └── freewill.gemspec
@@ -196,7 +212,7 @@ end
 
 ## Installation
 
-```
+```bash
 $ brew install rbenv ruby-build rbenv-gemset
 ```
 Afterwards you'll still need to add eval "$(rbenv init -)" to your profile as stated in the caveats. You'll only ever have to do this once.
@@ -205,7 +221,9 @@ Afterwards you'll still need to add eval "$(rbenv init -)" to your profile as st
 
 ### oh-my-zsh
 
-- `$ subl ~/.zshrc`
+```bash
+$ subl ~/.zshrc
+```
 
 ```
 plugins=(git sublime rbenv)
@@ -233,9 +251,10 @@ plugins=(git sublime rbenv)
 
 ---
 
-## Ruby Version Manager (**RVM**)
+# RVM
 
-RVM is a command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems.
+- Ruby Version Manager
+- RVM is a command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems.
 
 ---
 
@@ -244,9 +263,13 @@ RVM is a command-line tool which allows you to easily install, manage, and work 
 - manage your application's	 dependencies
 - tracking and installing the exact gems and versions that are needed
 
-```
+```bash
 $ gem install bundler
 $ bundle init
+```
+
+```bash
+$ bundle install
 ```
 
 ---
@@ -256,14 +279,29 @@ $ bundle init
 ```ruby
 source 'https://rubygems.org'
 
-gem 'nokogiri'
+gem 'awesome_print'
 gem 'rails', '3.0.0.beta3'
 gem 'rack', '>=1.0'
 gem 'thin', '~>1.1'
 # gem 'thin', '>= 1.1', '< 1.2'
 
-gem 'rspec', :require => 'spec'
-gem 'rspec', :require => false
+gem 'sinatra', :require => 'sinatra/base'
+gem 'capybare-webkit', :require => false
+```
+```ruby
+require 'awesome_print'
+
+ap 'Hello World!'
+```
+
+---
+### Bundler.require
+
+```ruby
+require 'bundler/setup'
+Bundler.require(:default)
+
+ap "Hello World!"
 ```
 
 ---
@@ -279,7 +317,7 @@ group :test do
 end
 ```
 
-```
+```bash
 $ bundle install --without=development test
 ```
 
@@ -287,7 +325,7 @@ $ bundle install --without=development test
 
 ### Gemfile.lock
 
-```
+```bash
 $ git add Gemfile Gemfile.lock
 ```
 
@@ -296,7 +334,7 @@ ensures that other developers on your app, as well as your deployment environmen
 ---
 
 ## bundle exec
-```
+```bash
 $ bundle exec rspec
 ```
 
@@ -306,36 +344,45 @@ $ bundle exec rspec
 
 ### oh-my-zsh
 
-- `$ subl ~/.zshrc`
+```bash
+$ subl ~/.zshrc
+```
 
 ```
 plugins=(git sublime rbenv bundler)
 ```
 ---
 
-## REPL -- **Read–eval–print** loop 
+# RSpec
 
-- irb
-- pry
- 
+RSpec is testing tool for the Ruby programming language. Born under the banner of **Behaviour-Driven Development**, it is designed to make **Test-Driven Development** a productive and enjoyable experience with features like:
+
+- a rich command line program (the rspec command)
+- textual descriptions of examples and groups (rspec-core)
+- flexible and customizable reporting
+- extensible expectation language (rspec-expectations)
+- built-in mocking/stubbing framework (rspec-mocks)
+
 ---
 
-## **rspec** -- Make test **spec**
-```
-# bowling_spec.rb
+bowling_spec.rb
+
+```ruby
 require 'bowling'
 
 describe Bowling, "#score" do
   it "returns 0 for all gutter game" do
     bowling = Bowling.new
     20.times { bowling.hit(0) }
-    bowling.score.should eq(0)
+    expect(bowling.score).to be(0)
   end
 end
 ```
 
-```
-# bowling.rb
+---
+
+bowling.rb
+```ruby
 class Bowling
   def hit(pins)
   end
@@ -344,6 +391,10 @@ class Bowling
     0
   end
 end
+```
+
+```bash
+$ rspec bowling_spec.rb
 ```
 
 ---
