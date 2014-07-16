@@ -58,7 +58,7 @@ freewill/
 ├── lib/
 │   └── freewill.rb
 ├── test/
-│   └── test_freewill.rb
+│   └── freewill_test.rb
 ├── README
 ├── Rakefile
 └── freewill.gemspec
