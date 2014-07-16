@@ -263,7 +263,9 @@ RVM is a command-line tool which allows you to easily install, manage, and work 
 ......
 ......
 ```
+
     (2**10000).to_s.length # => 3011
+    (2..10000).class  # => Bignum < Integer
 ---
 ## __并行__赋值
 ```ruby
@@ -390,7 +392,7 @@ end
                                      hello world!
   [1, 2, 3, 4].map {|x| x * x } # => [1, 4, 9, 16]
   [1, 2, 3, 4].select {|x| x > 2 } # => [3, 4]
-  (100..1000).step(100).inject([]) {|a, e| a << e }
+  (100..1000).step(100).to_a
   # => [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
   (1..10).reduce(:+) # => 55
 ```
