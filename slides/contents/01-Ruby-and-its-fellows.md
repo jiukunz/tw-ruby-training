@@ -222,22 +222,54 @@ plugins=(git sublime rbenv)
 
 ---
 
-# Ruby Version Manager (RVM)
+## Ruby Version Manager (**RVM**)
 
 RVM is a command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems.
 
 ---
 
-# bundle
+## **bundler**
 
+Bundler provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed. 
+
+```
+gem install bundler
+```
 
 ---
 
-#REPL -- pry 
+## REPL -- **Read–eval–print** loop 
 
+- irb
+- pry
+ 
 ---
 
-# rspec概念, SPEC  代码show一下
+## **rspec** -- Make test **spec**
+```
+# bowling_spec.rb
+require 'bowling'
+
+describe Bowling, "#score" do
+  it "returns 0 for all gutter game" do
+    bowling = Bowling.new
+    20.times { bowling.hit(0) }
+    bowling.score.should eq(0)
+  end
+end
+```
+
+```
+# bowling.rb
+class Bowling
+  def hit(pins)
+  end
+
+  def score
+    0
+  end
+end
+```
 
 ---
 
