@@ -44,12 +44,12 @@
 - part of the standard library from Ruby version 1.9
 - 78,439 gems hosted on RubyGems.org on Jul 15, 2014
 - gem command
-  - `gem search rspec`
-  - `gem install rspec`
-  - `gem list`
-  - `gem list rspec -d`
-  - `gem uninstall rspec`
-  - `gem environment gemdir`
+  - `$ gem search rspec`
+  - `$ gem install rspec`
+  - `$ gem list`
+  - `$ gem list rspec -d`
+  - `$ gem uninstall rspec`
+  - `$ gem environment gemdir`
 
 ---
 
@@ -87,17 +87,17 @@ freewill/
 
 ## rake command
 
-- `rake`
+- `$ rake`
 
   run the "default" task in the Rakefile
-- `rake -T`
+- `$ rake -T`
 
   Display a list of the major tasks and their comments
-- `rake -P`
+- `$ rake -P`
 
   Display a list of all tasks and their immediate prerequisites
-- `rake name`
-- `rake name[Wei,Zheng]`
+- `$ rake name`
+- `$ rake name[Wei,Zheng]`
 - `--rakelibdir rakelibdir (-R)`
 
   Auto-import any .rake files in RAKELIBDIR. (default is 'rakelib')
@@ -188,16 +188,16 @@ end
 - Understanding Shims
 
 - Choosing the Ruby Version
-  - rbenv shell
-  - rbenv local
-  - rbenv global
+  - `$ rbenv shell`
+  - `$ rbenv local`
+  - `$ rbenv global`
 
 ---
 
 ## Installation
 
 ```
-brew install rbenv ruby-build rbenv-gemset
+$ brew install rbenv ruby-build rbenv-gemset
 ```
 Afterwards you'll still need to add eval "$(rbenv init -)" to your profile as stated in the caveats. You'll only ever have to do this once.
 
@@ -205,7 +205,7 @@ Afterwards you'll still need to add eval "$(rbenv init -)" to your profile as st
 
 ### oh-my-zsh
 
-- `subl ~/.zshrc`
+- `$ subl ~/.zshrc`
 
 ```
 plugins=(git sublime rbenv)
@@ -215,10 +215,10 @@ plugins=(git sublime rbenv)
 
 ## rbenv command
 
-- `rbenv install -l`
-- `rbenv install 2.1.2`
-- `rbenv local 2.1.2`
-- `rbenv rehash`
+- `$ rbenv install -l`
+- `$ rbenv install 2.1.2`
+- `$ rbenv local 2.1.2`
+- `$ rbenv rehash`
 
   Run this command after you install a new version of Ruby, or install a gem that provides commands
 - `.ruby-gemset`
@@ -227,9 +227,9 @@ plugins=(git sublime rbenv)
 
 ## rbenv which
 
-- `rbenv versions`
-- `rbenv which ruby`
-- `rbenv gemset active`
+- `$ rbenv versions`
+- `$ rbenv which ruby`
+- `$ rbenv gemset active`
 
 ---
 
@@ -239,14 +239,78 @@ RVM is a command-line tool which allows you to easily install, manage, and work 
 
 ---
 
-## **bundler**
+# Bundler
 
-Bundler provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed. 
+- manage your application's	 dependencies
+- tracking and installing the exact gems and versions that are needed
 
 ```
-gem install bundler
+$ gem install bundler
+$ bundle init
 ```
 
+---
+
+## Gemfile
+
+```ruby
+source 'https://rubygems.org'
+
+gem 'nokogiri'
+gem 'rails', '3.0.0.beta3'
+gem 'rack', '>=1.0'
+gem 'thin', '~>1.1'
+# gem 'thin', '>= 1.1', '< 1.2'
+
+gem 'rspec', :require => 'spec'
+gem 'rspec', :require => false
+```
+
+---
+
+### Groups
+
+```ruby
+gem 'wirble', :group => :development
+gem 'debugger', :group => [:development, :test]
+
+group :test do
+  gem 'rspec'
+end
+```
+
+```
+$ bundle install --without=development test
+```
+
+---
+
+### Gemfile.lock
+
+```
+$ git add Gemfile Gemfile.lock
+```
+
+ensures that other developers on your app, as well as your deployment environment, will all use the same third-party code that you are using now.
+
+---
+
+## bundle exec
+```
+$ bundle exec rspec
+```
+
+>> rspec-core is not part of the bundle. Add it to Gemfile.
+
+---
+
+### oh-my-zsh
+
+- `$ subl ~/.zshrc`
+
+```
+plugins=(git sublime rbenv bundler)
+```
 ---
 
 ## REPL -- **Read–eval–print** loop 
