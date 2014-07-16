@@ -584,7 +584,11 @@ homework
 
 <small>**PS: Tdd with rspec, Rake is bonus! **</small>
 
+--- 
 
+## **Resource** 
+
+- https://github.com/jiukunz/tw-ruby-training
 
 
 
