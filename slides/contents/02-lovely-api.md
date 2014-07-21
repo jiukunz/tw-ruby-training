@@ -1,5 +1,5 @@
 # LOVELY **API**
-![chicken](../img/chicken.png)
+![chicken](https://github.com/jiukunz/tw-ruby-training/blob/master/slides/img/chicken.png)
 ---
 #**Array** []
 ---
@@ -187,7 +187,7 @@ And then, you can use all the methods in **Array**!
 ---
 
 # **Codewar** TIME
-![cowboy](../img/cowboy.png)
+![cowboy](https://github.com/jiukunz/tw-ruby-training/blob/master/slides/img/cowboy.png)
 ---
 ## Example: **We need prime numbers and we need them now!**
 
