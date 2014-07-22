@@ -230,13 +230,15 @@ a.concat(33)   #=> "hello world!"
 And then, you can use all the methods in **Array**!
 
 ---
-##Powerful **gsub**
+##Powerful **gsub**/sub
 ```ruby
 "hello".gsub(/[aeiou]/, '*')                  #=> "h*ll*"
 "hello".gsub(/([aeiou])/, '<\1>')             #=> "h<e>ll<o>"
 "hello".gsub(/./) {|s| s.ord.to_s + ' '}      #=> "104 101 108 108 111 "
 "hello".gsub(/(?<foo>[aeiou])/, '{\k<foo>}')  #=> "h{e}ll{o}"
 'hello'.gsub(/[eo]/, 'e' => 3, 'o' => '*')    #=> "h3ll*"
+"quick brown fox".gsub(/[aeiou]/) {|vowel| vowel.upcase }  
+                                              #=> "qUIck brOwn fOx"
 ```
 ---
 
