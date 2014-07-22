@@ -26,7 +26,7 @@ ruby-build is a plugin to compile and install Ruby
 ```
 brew install ruby-build
 rbenv install --list         # 列出所有 ruby 版本
-rbenv install 2.1.1          # 安装 ruby 2.1.1
+rbenv install 2.1.2          # 安装 ruby 2.1.2
 ```
 
 #### Install [rbenv-update](https://github.com/rkh/rbenv-update)
