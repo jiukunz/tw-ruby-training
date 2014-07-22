@@ -119,8 +119,8 @@ class M
     end
 end
 
-puts M.new       #=> #<M:0x007fc429b904e8>
-p M.new          #=> "hahahah"
+puts M.new          #=> "hahahah"       
+p M.new             #=> #<M:0x007fc429b904e8>          
 ```
 
 ---
@@ -180,9 +180,12 @@ And then, you can use all the methods in **Array**!
 "123.45e1".to_f          #=> 1234.5
 "45.67 degrees".to_f     #=> 45.67
 
-#to integer
+#to fixnum
 "1100101".to_i(8)        #=> 294977
 "99 red balloons".to_i   #=> 99
+
+##fixnum to string
+123.to_s(2)              #=> "1111011"      
 ```
 ---
 
