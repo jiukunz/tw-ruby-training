@@ -319,11 +319,11 @@ body {
 .reveal pre {
 	display: block;
 	position: relative;
-	width: 90%;
+	width: 100%;
 	margin: 15px auto;
 
 	text-align: left;
-	font-size: 0.8em;
+	font-size: 0.7em;
   /*
    * font-family: monospace;
    */
@@ -338,7 +338,7 @@ body {
   /*
    * font-family: monospace;
    */
-  font-family: mplus-1m-regular;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 .reveal pre code {
 	padding: 5px;
