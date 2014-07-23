@@ -51,6 +51,7 @@ describe "BlackJack" do
   specify { score_hand("5", "4", "3", "2", "A", "K").must_equal 25 }
 end
 
+
 RULES = {
   "1" => [1],
   "2" => [2],
@@ -72,13 +73,15 @@ def score_hand(*args)
   result = args.inject(0) do |a, e|
     a + RULES[e].first
   end
-  result += 10 if result <= 11 and args.include? "A"
+  result += RULES["A"][1] if result <= 11 and args.include? "A"
   result
 end
+
 ```
 ---
 Split hash by key
 
+```
 require 'minitest/autorun'
 require 'minitest/pride'
 
@@ -91,4 +94,4 @@ def split_hash_by_key(hashs, *args)
   array = args.map {|e| keys.shift(keys.index(e))}.concat([keys])
   array.map {|e| e.map {|x| [x, hashs[x]] } }.map {|e| Hash[e] }
 end
-
+```
