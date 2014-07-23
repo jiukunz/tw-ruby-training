@@ -213,7 +213,7 @@ end
 ## Installation
 
 ```bash
-$ brew install rbenv ruby-build rbenv-gemset
+$ brew install rbenv ruby-build
 ```
 Afterwards you'll still need to add eval "$(rbenv init -)" to your profile as stated in the caveats. You'll only ever have to do this once.
 
@@ -239,7 +239,6 @@ plugins=(git sublime rbenv)
 - `$ rbenv rehash`
 
   Run this command after you install a new version of Ruby, or install a gem that provides commands
-- `.ruby-gemset`
 
 ---
 
@@ -247,7 +246,6 @@ plugins=(git sublime rbenv)
 
 - `$ rbenv versions`
 - `$ rbenv which ruby`
-- `$ rbenv gemset active`
 
 ---
 
