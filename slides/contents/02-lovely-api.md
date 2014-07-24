@@ -1,6 +1,26 @@
 # LOVELY **API**
 ![chicken](https://raw.githubusercontent.com/jiukunz/tw-ruby-training/master/slides/img/chicken.png)
 ---
+
+## **约定**
+
+- 不需要使用电脑，需要使用时会提示
+- 不需要记笔记，资料在github上
+- 手机静音
+- 请随时提问，可能会使用 Parking Lot
+- 语速太快、慢、大、小，请随时提醒
+- 请大家遵守课堂纪律
+
+---
+#**Agenda**
+ - Array
+ - Hash
+ - Range
+ - Enumerable
+ - String
+ - **CodeWar**
+
+----
 #**Array** []
 ---
 ##**Array** Creation
@@ -41,7 +61,7 @@ arr.reverse_each { |x| print x}  #=> cba
 ```
 ---
 
-#Ruby **Functional** Programming
+#Ruby **Map-Reduce**
 ---
 
 ##Array\#**map**
@@ -232,17 +252,21 @@ And then, you can use all the methods in **Array**!
 ---
 ##Powerful **gsub**/sub
 ```ruby
-"hello".gsub(/[aeiou]/, '*')                  #=> "h*ll*"
-"hello".gsub(/([aeiou])/, '<\1>')             #=> "h<e>ll<o>"
-"hello".gsub(/./) {|s| s.ord.to_s + ' '}      #=> "104 101 108 108 111 "
-"hello".gsub(/(?<foo>[aeiou])/, '{\k<foo>}')  #=> "h{e}ll{o}"
-'hello'.gsub(/[eo]/, 'e' => 3, 'o' => '*')    #=> "h3ll*"
+"hello".gsub(/[aeiou]/, '*')             #=> "h*ll*"
+"hello".gsub(/([aeiou])/, '<\1>')             
+                                         #=> "h<e>ll<o>"
+"hello".gsub(/./) {|s| s.ord.to_s + ' '}      
+                                         #=> "104 101 108 108 111 "
+"hello".gsub(/(?<foo>[aeiou])/, '{\k<foo>}')  
+                                         #=> "h{e}ll{o}"
+'hello'.gsub(/[eo]/, 'e' => 3, 'o' => '*')    
+                                         #=> "h3ll*"
 "quick brown fox".gsub(/[aeiou]/) {|vowel| vowel.upcase }  
-                                              #=> "qUIck brOwn fOx"
+                                         #=> "qUIck brOwn fOx"
 ```
 ---
 
-##Another **'kind'** of String
+##Another **kind** of String
 
 > Symbols are immutable. Mutable objects can be changed after assignment while immutable objects can only be overwritten
 
@@ -400,7 +424,7 @@ split_hash_by_key( {:a => 1, :b => 2}, :a )
 split_hash_by_key( { :a=>1, :b=>2, :c=>3, :d=>4, :e=>5, :f=>6 }, 'b' )
 ```
 ---
-#Homework
+#**Win the CodeWar!**
     
-**作业: 使用 each 来自己实现 select, map, reduce**
+homework
 
