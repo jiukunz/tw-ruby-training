@@ -2,11 +2,12 @@
 ---
 ### Block is **part of** method in Ruby.
 ---
-### You can give **ANY** method a block,
+### You can give **ANY** method a block, 
 ### Whether you use it or not.
 ```ruby
 def meth
 end
+
 meth { "Where block code live in" }
 ```
 ---
@@ -25,7 +26,8 @@ p meth {} # <=> p (meth {})
 ---
 ## How to **USE** block?
 ---
-# **yield (让 + 予)**
+## **yield (给予 + 收益)**
+
 ---
 ### We can yield some **data** to block.
 ```ruby
@@ -33,7 +35,7 @@ def meth
   yield 1, 2, 3 if block_given?
 end
 ```
-### And expect return some **value**.
+### And expect some **value** to be return.
 
 ```ruby
 p meth {|x, y, z| x + y + z } # => ??
@@ -42,14 +44,15 @@ p meth {|x, y, z| x + y + z } # => ??
 ## What really does **yield** ?
 ```ruby
 def meth; yield [1, 2, 3] end
+
 meth {|x, y, z| x + y + z } # => 6
 ```
-- pass **[1, 2, 3]** to block, and **BLOCK** method.
+- yield **[1, 2, 3]** to block, also **BLOCK** this method.
   
 - block take data with **parallel assignment**<br />
   x, y, z = [1, 2, 3] # => x=1, y=2, z=3
   
-- do block logic.
+- execute block logic.
 
 - return result value to yield. (**NOT** return to method)
 
@@ -80,7 +83,7 @@ p [1, 2, 3, 4].filter                   # => #<Enumerator: [1, 2, 3, 4]:filter>
 ---
 ### We need pass in a **predefine** block
 ```ruby
-p [1, 2, 3, 4].filter &block
+[1, 2, 3, 4].filter &block
 ```
 ---
 ### We can **objectfy** block as a Proc object
@@ -91,7 +94,7 @@ end
 
 meth {}         # => Proc < Object
 ```
-### with the **address** notation in parameter.
+### with the address(&) notation in **parameter**.
 ---
 ### We can **blockfy** a Proc object
 ```ruby
@@ -101,7 +104,7 @@ meth(&new_proc)         # => 6
 another_proc = proc {|e| e >= 3 }
 [1, 2, 3, 4].filter(&another_proc)
 ```
-### with the **address** notation in argument.
+### with the address(&) notation in **argument**.
 ---
 ### Use **Proc#call** to call the block
 ### with arguments passed into block
@@ -113,7 +116,6 @@ end
 def meth2
   yield 1, 2, 3         # => more faster.
 end
-
 require 'fruity'
 compare do
   slower { meth1 {|x, y, z| x + y + z } }
@@ -127,10 +129,11 @@ end
 ---
 ### **Break** method encapsulation, pass in logic.
 ```ruby
-# pass x >= 2(one logic) into select method
+# pass x >= 2(some logic) into select method
 [1, 2, 3, 4].select {|x| x >= 2 }
 ```
-### (Maybe) expect a meaningful **return value**
+### (Maybe) expect a meaningful **value** to be return.
+
 ```ruby
 [1, 2, 3, 4].map {|x| x * x }   # => [1, 4, 9, 16]
 ```
@@ -158,7 +161,6 @@ class SomeClass
   end
 
   def do_one_thing; ... end
-
   def do_another_thing; ... end
 end
 
@@ -178,6 +180,7 @@ one_proc = proc {}
 
 p one_lambda    # => #<Proc:0x007fd74b872498 (lambda)>
 p one_proc      # => #<Proc:0x007fd74b872470>
+p one_lambda.lambda?    # => true
 ```
 ---
 ### **proc** is **objectfied** block.
@@ -224,6 +227,10 @@ end
 
 meth(lambda { 100 }) {|x| x.call }       # => 100
 ```
+---
+### average split a array.
+1. Given array = (1..100).to_a
+2. Split array to N part, as avarage as possible.
 ---
 # Homework
 1. Array#group_by1, Array#inject1.
