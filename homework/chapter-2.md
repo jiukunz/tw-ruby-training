@@ -7,9 +7,7 @@ https://github.com/cuijiao/ruby-session-homework 崔娇
 https://github.com/Wangjiaji007/ruby_dojo wangjiaji
 https://github.com/liul85/splithash
 https://github.com/mixiaopa/RubyTraining/tree/master/exercise1/FizzBuzz
-
-未交:
-sunchen
+http://github.com/sunchen115/rubytest/ sunchen
+https://github.com/lanmengyujing/ruby-training liujing
 Sarah
-liujing
 

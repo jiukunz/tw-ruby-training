@@ -54,7 +54,7 @@ meth {|x, y, z| x + y + z } # => 6
   
 - execute block logic.
 
-- return result value to yield. (**NOT** return to method)
+- return result value to **yield**.
 
 - **RESUME** from yield, continue execute The rest statement of method.
 ---
@@ -81,10 +81,19 @@ p [1, 2, 3, 4].filter {|e| e >= 3 }     # => [2, 3, 4]
 p [1, 2, 3, 4].filter                   # => #<Enumerator: [1, 2, 3, 4]:filter>
 ```
 ---
-### We need pass in a **predefine** block
+### How to pass in a **predefine** block ?
 ```ruby
-[1, 2, 3, 4].filter &block
+[1, 2, 3, 4].filter &some_block
 ```
+---
+### We can **blockfy** a Proc object
+```ruby
+one_proc = proc {|e| e >= 3 }
+
+[1, 2, 3, 4].filter(&one_proc)
+```
+### with the **&** notation in **argument**.
+### [1, 2, 3, 4].filter(**&one_proc**)
 ---
 ### We can **objectfy** block as a Proc object
 ```ruby
@@ -94,17 +103,8 @@ end
 
 meth {}         # => Proc < Object
 ```
-### with the address(&) notation in **parameter**.
----
-### We can **blockfy** a Proc object
-```ruby
-one_proc = proc {|x, y, z| x + y + z }
-meth(&new_proc)         # => 6
-
-another_proc = proc {|e| e >= 3 }
-[1, 2, 3, 4].filter(&another_proc)
-```
-### with the address(&) notation in **argument**.
+### with the **&** notation in **parameter**.
+### def meth(**&block**)
 ---
 ### Use **Proc#call** to call the block
 ### with arguments passed into block
@@ -116,6 +116,7 @@ end
 def meth2
   yield 1, 2, 3         # => more faster.
 end
+
 require 'fruity'
 compare do
   slower { meth1 {|x, y, z| x + y + z } }
@@ -129,10 +130,10 @@ end
 ---
 ### **Break** method encapsulation, pass in logic.
 ```ruby
-# pass x >= 2(some logic) into select method
+# pass x >= 2 into select method
 [1, 2, 3, 4].select {|x| x >= 2 }
 ```
-### (Maybe) expect a meaningful **value** to be return.
+### Expect a meaningful **value** to be return.
 
 ```ruby
 [1, 2, 3, 4].map {|x| x * x }   # => [1, 4, 9, 16]
@@ -178,45 +179,69 @@ end
 one_lambda = lambda {}
 one_proc = proc {}
 
-p one_lambda    # => #<Proc:0x007fd74b872498 (lambda)>
-p one_proc      # => #<Proc:0x007fd74b872470>
+p one_lambda            # => #<Proc:0x007fd74b872498 (lambda)>
 p one_lambda.lambda?    # => true
+
+p one_proc              # => #<Proc:0x007fd74b872470>
+p one_proc.lambda?      # => false
 ```
 ---
 ### **proc** is **objectfied** block.
+```ruby
+def meth(&proc_object)
+  p proc_object         # => a proc object.
+end
+
+meth { 100 }             # => proc is { 100 }
+```
 ### **lambda** is **objectfied** method.
+```ruby
+method(:meth).to_proc   # => a lambda object.
+```
 ---
-### **NEVER** pass lambda as block, make **confused**!
+### **NEVER** pass lambda as block
+## make **confused**!
+---
+## Reason one:
 ```ruby
 one_lambda = lambda {|x, y| x + y }
 one_proc = proc {|x, y| x + y }
 
-def meth(&block)
- p block
- p block.call([10, 20])
-end
-
-meth(&one_lambda)
-# => #<Proc:0x007fbd0b872380 lambda>
+[[1, 2], [3, 4]].map &one_lambda
 # => wrong number of arguments (1 for 2) (ArgumentError)
-meth(&one_proc)
-# => #<Proc:0x007fb0f2075f58>
-# => 30
+
+[[1, 2], [3, 4]].map &one_proc
+# => [3, 7]
 ```
 ---
-### Another difference:
+## Reason two:
 ```ruby
 one_lambda = lambda { return 100 }
 one_proc = proc { return 100 }
 
 def meth(&block)
-  p block.call
+  block.call
 end
 
-meth(&one_lambda)               # => 100
-meth(&one_proc)                 # => unexpected return (LocalJumpError)
-another_proc = proc { next 100 }
-meth(&another_proc)             # => 100
+# lambda only return block to block.call
+meth(&one_lambda)       # => 100
+
+# proc return outer method which meth exist.
+meth(&one_proc)         # => unexpected return (LocalJumpError)
+```
+---
+### We should use lambda as **JavaScript**:
+```
+def meth(lambda_arg)
+  lambda_arg1.call(100)
+end
+
+meth(lambda {|x| x })           # => 300
+meth -> (x) { return x }        # => 1.9 new lambda
+```
+```js
+meth(function (x) { return x }) # => Javascript
+meth (x) -> x                   # => Coffee
 ```
 ---
 ### We can use **lambda + block** together.
@@ -225,17 +250,23 @@ def meth(lambda_param)
   yield lambda_param
 end
 
-meth(lambda { 100 }) {|x| x.call }       # => 100
+meth(-> (x) { x + x }) {|x| x.call(100) }       # => ???
 ```
 ---
-### average split a array.
+### average split a array. (use each)
 1. Given array = (1..100).to_a
-2. Split array to N part, as avarage as possible.
+2. Split array to N part, each part should have as avarage as amount element.
+3. Array element can be arbitrary.
+
+```ruby
+array = (1..10).to_a
+split_array(array, 3)   # => [[1, 4, 7, 10], [2, 5, 8], [3, 6, 9]]
+```
 ---
 # Homework
 1. Array#group_by1, Array#inject1.
-2. convert a number to Roman notation. (use block)
-
+   
+2. convert a number to Roman notation. (use each + recursion)
     "M"         => 1000,
     "CM"        => 900,
     "D"         => 500,
