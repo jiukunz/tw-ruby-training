@@ -233,10 +233,10 @@ meth(&one_proc)         # => unexpected return (LocalJumpError)
 ### We should use lambda as **JavaScript**:
 ```
 def meth(lambda_arg)
-  lambda_arg1.call(100)
+  lambda_arg.call(100)
 end
 
-meth(lambda {|x| x })           # => 300
+meth(lambda {|x| x })           # => 100
 meth -> (x) { return x }        # => 1.9 new lambda
 ```
 ```js
