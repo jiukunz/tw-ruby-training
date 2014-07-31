@@ -245,7 +245,6 @@ body {
 
 .reveal strong,
 .reveal b {
-  color: #FF2D55;
 	font-weight: bold;
 }
 
@@ -319,15 +318,12 @@ body {
 .reveal pre {
 	display: block;
 	position: relative;
-	width: 100%;
+	width: 90%;
 	margin: 15px auto;
 
 	text-align: left;
-	font-size: 0.7em;
-  /*
-   * font-family: monospace;
-   */
-  font-family: mplus-1m-regular;
+	font-size: 0.55em;
+	font-family: monospace;
 	line-height: 1.2em;
 
 	word-wrap: break-word;
@@ -335,10 +331,7 @@ body {
 	box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
 }
 .reveal code {
-  /*
-   * font-family: monospace;
-   */
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-family: monospace;
 }
 .reveal pre code {
 	padding: 5px;
