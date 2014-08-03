@@ -2,17 +2,6 @@
 
 ---
 
-## **约定**
-
-- 不需要使用电脑，需要使用时会提示
-- 不需要记笔记，资料课后发给大家
-- 手机静音
-- 请随时提问，可能会使用 Parking Lot
-- 语速太快、慢、大、小，请随时提醒
-- 请大家遵守课堂纪律
-
-----
-
 # Ruby at a Glance
 
 - a Programming Language
@@ -425,24 +414,23 @@ $ rspec bowling_spec.rb
 ---
 ## __并行__赋值
 ```ruby
-    x, y, z = 1, 2, 3 # => x=1 y=2 z=3
-    
-    x, y = 1, 2, 3 # => x=1 y=2 z=nil
-    
-    x = 1, 2, 3   # => x = [1, 2, 3]
-    
-    x, *y, z = 1, 2, 3, 4 # => x=1, y=[2, 3], z=4
+x, y, z = 1, 2, 3 # => x=1 y=2 z=3
 
-    x, y, z = 1, *[2, 3]  # => x=1 y=2 z=3
-    
-    a, (b, (c, d)) = [1, [2, [3, 4]]]
-    
-    a, b = b, a  # => 交换 a, b
-    
+x, y = 1, 2, 3 # => x=1 y=2 z=nil
+
+x = 1, 2, 3   # => x = [1, 2, 3]
+
+x, *y, z = 1, 2, 3, 4 # => x=1, y=[2, 3], z=4
+
+x, y, z = 1, *[2, 3]  # => x=1 y=2 z=3
+
+a, (b, (c, d)) = [1, [2, [3, 4]]]
+
+a, b = b, a  # => 交换 a, b
 ```
 ---
-    
-## splat(__*__) 参数 
+
+## splat(__*__) 参数
 ```ruby
 def some_meth(*args)
   p args
@@ -582,9 +570,9 @@ homework
 
 <small>**PS: Tdd with rspec, Rake is bonus! **</small>
 
---- 
+---
 
-## **Resource** 
+## **Resource**
 
 - https://github.com/jiukunz/tw-ruby-training
 - http://tryruby.org/

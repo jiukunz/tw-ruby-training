@@ -2,7 +2,7 @@
 ---
 ### Block is **part of** method in Ruby.
 ---
-### You can give **ANY** method a block, 
+### You can give **ANY** method a block,
 ### Whether you use it or not.
 ```ruby
 def meth
@@ -48,10 +48,10 @@ def meth; yield [1, 2, 3] end
 meth {|x, y, z| x + y + z } # => 6
 ```
 - yield **[1, 2, 3]** to block, also **BLOCK** this method.
-  
+
 - block take data with **parallel assignment**<br />
   x, y, z = [1, 2, 3] # => x=1, y=2, z=3
-  
+
 - execute block logic.
 
 - return result value to **yield**.
@@ -265,7 +265,7 @@ split_array(array, 3)   # => [[1, 4, 7, 10], [2, 5, 8], [3, 6, 9]]
 ---
 # Homework
 1. Array#group_by1, Array#inject1.
-   
+
 2. convert a number to Roman notation. (use each + recursion)
     "M"         => 1000,
     "CM"        => 900,

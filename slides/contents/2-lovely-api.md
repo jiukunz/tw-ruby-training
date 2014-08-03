@@ -1,17 +1,8 @@
 # LOVELY **API**
 ![chicken](https://raw.githubusercontent.com/jiukunz/tw-ruby-training/master/slides/img/chicken.png)
----
-
-## **约定**
-
-- 不需要使用电脑，需要使用时会提示
-- 不需要记笔记，资料在github上
-- 手机静音
-- 请随时提问，可能会使用 Parking Lot
-- 语速太快、慢、大、小，请随时提醒
-- 请大家遵守课堂纪律
 
 ---
+
 #**Agenda**
  - Array
  - Hash
@@ -20,7 +11,7 @@
  - String
  - **CodeWar**
 
-----
+---
 #**Array** []
 ---
 ##**Array** Creation
@@ -28,7 +19,7 @@
 ```ruby
 a = [ 1, "cat", 3.14 ]
 
-puts a[0]          #=> 1 
+puts a[0]          #=> 1
 puts a.size        #=> 3
 
 a[3] = nil
@@ -140,7 +131,7 @@ grades["Dorothy Doe"] = 9
 
 ```ruby
 books = {
-    :matz => "The Ruby Language", 
+    :matz => "The Ruby Language",
     :black => "The Well-Grounded Rubyist"
 }
 books.each { |author, name| puts "#{author}: #{name}" }
@@ -213,10 +204,10 @@ ary.count(2)            #=> 2
 ary.count{ |x| x%2==0 } #=> 3
 ```
 ---
-#**String** 
+#**String**
 
  - Difference between " " and ' '
- - Difference between **puts** and **print** and **p** 
+ - Difference between **puts** and **print** and **p**
 
 ```ruby
 class M
@@ -253,15 +244,15 @@ And then, you can use all the methods in **Array**!
 ##Powerful **gsub**/sub
 ```ruby
 "hello".gsub(/[aeiou]/, '*')             #=> "h*ll*"
-"hello".gsub(/([aeiou])/, '<\1>')             
+"hello".gsub(/([aeiou])/, '<\1>')
                                          #=> "h<e>ll<o>"
-"hello".gsub(/./) {|s| s.ord.to_s + ' '}      
+"hello".gsub(/./) {|s| s.ord.to_s + ' '}
                                          #=> "104 101 108 108 111 "
-"hello".gsub(/(?<foo>[aeiou])/, '{\k<foo>}')  
+"hello".gsub(/(?<foo>[aeiou])/, '{\k<foo>}')
                                          #=> "h{e}ll{o}"
-'hello'.gsub(/[eo]/, 'e' => 3, 'o' => '*')    
+'hello'.gsub(/[eo]/, 'e' => 3, 'o' => '*')
                                          #=> "h3ll*"
-"quick brown fox".gsub(/[aeiou]/) {|vowel| vowel.upcase }  
+"quick brown fox".gsub(/[aeiou]/) {|vowel| vowel.upcase }
                                          #=> "qUIck brOwn fOx"
 ```
 ---
@@ -295,7 +286,7 @@ And then, you can use all the methods in **Array**!
 "99 red balloons".to_i   #=> 99
 
 ##fixnum to string
-123.to_s(2)              #=> "1111011"      
+123.to_s(2)              #=> "1111011"
 ```
 ---
 
@@ -372,7 +363,7 @@ Description:
 5.palindrome_below(2)
 => [1, 3]
 ```
---- 
+---
 ##**Blackjack Scorer**
 Description:
 
@@ -393,14 +384,14 @@ scoreHand(["5", "3", "7"]); //=> 15
 scoreHand(["5", "4", "3", "2", "A", "K"]); //=> 25
 ```
 ---
-##**Split hash by key(s)** 
+##**Split hash by key(s)**
 Description:
 
 - Write a method which takes arguments:
 
  - hash
  - keys (comma-separated symbols or strings)
- 
+
 - and it splits hash by given keys and returns array of hashes.
 - If a key given as an argument is not present in the hash, the method should raise an exception
 - In case there are any empty hash after splitting, it should be removed from resultant array.
@@ -425,6 +416,6 @@ split_hash_by_key( { :a=>1, :b=>2, :c=>3, :d=>4, :e=>5, :f=>6 }, 'b' )
 ```
 ---
 #**Win the CodeWar!**
-    
+
 homework
 
