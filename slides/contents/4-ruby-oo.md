@@ -234,6 +234,20 @@ puts self.class # => Object
 
 ### Method Lookup
 
+```ruby
+class Programmer < Person
+  def code
+    "puts 'Hello, World'"
+  end
+end
+
+xqi = Programmer.new('Xi Qi')
+p Programmer.new('Xi Qi').code # => "puts 'Hello, World'"
+p xqi.class # => Programmer
+```
+
+---
+
 #### a class is an object
 
 ```ruby
@@ -258,11 +272,9 @@ p Module.superclass # => Object
 
 #### `??#puts`
 
-Ruby looks up the method by following the 
+Ruby looks up the method by following the rule
 
 > one step to the right, then up
-
-rule
 
 ```ruby
 p Object.method(:puts) # => #<Method: Class(Kernel)#puts>
@@ -310,15 +322,6 @@ It creates an anonymous class that wraps the module and inserts the anonymous cl
 
 ![Method lookup with modules](/img/method-lookup-with-modules.png)
 
----
-
-#### Kernel#puts
-
-```ruby
-p Object.methods.grep /puts/ # => []
-p Kernel.methods.grep /puts/ # => [:puts]
-p BasicObject.methods.grep /puts/ # => []
-```
 
 ---
 
@@ -413,10 +416,6 @@ end
 B.new.a_public_method # => a private method
 ```
 
----
-
-## extend
-## module_function
 ---
 
 ## References
