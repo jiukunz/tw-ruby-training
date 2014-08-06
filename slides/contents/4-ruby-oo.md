@@ -183,23 +183,18 @@ end
 ### module Enumerable
 
 ```ruby
-class VowelFinder
+class Colors
   include Enumerable
 
-  def initialize(string)
-    @string = string
-  end
-
   def each
-    @string.scan(/[aeiou]/) do |vowel|
-      yield vowel
-    end
+    yield "red"
+    yield "green"
+    yield "blue"
   end
 end
 
-vf = VowelFinder.new("the quick brown fox jumped")
-p vf.inject(:+) # => "euiooue"
-
+colors = Colors.new
+p colors.map(&:reverse) # => ["der", "neerg", "eulb"]
 ```
 
 ---
@@ -207,10 +202,11 @@ p vf.inject(:+) # => "euiooue"
 ## Practice Time
 
 - mixin Enumerable
+- String#scan
 
 ```ruby
-splitter = Splitter.new("Hello, World")
-p splitter.map(&:upcase) # => ["H", "E", "L", "L", "O", ",", " ", "W", "O", "R", "L", "D"]
+finder = VowelFinder.new("the quick brown fox jumped")
+p finder.inject(:+) # => "euiooue"
 ```
 
 ---
@@ -414,6 +410,18 @@ class B < A
 end
 
 B.new.a_public_method # => a private method
+```
+
+---
+
+## Homework
+
+
+```ruby
+p1 = Person.new("Matz")
+p2 = Person.new("Guido")
+p3 = Person.new("Larry")
+puts [p1, p2, p3].sort # => Guido\nLarry\nMatz
 ```
 
 ---
