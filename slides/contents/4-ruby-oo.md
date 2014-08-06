@@ -267,7 +267,7 @@ p Module.superclass # => Object
 ```
 
 ---
-![Object model diagram](/img/object-model-diagram.png)
+![Object model diagram](https://raw.githubusercontent.com/jiukunz/tw-ruby-training/master/img/object-model-diagram.png)
 ---
 
 #### `??#puts`
@@ -320,7 +320,7 @@ It creates an anonymous class that wraps the module and inserts the anonymous cl
 
 ---
 
-![Method lookup with modules](/img/method-lookup-with-modules.png)
+![Method lookup with modules](https://raw.githubusercontent.com/jiukunz/tw-ruby-training/master/img/method-lookup-with-modules.png)
 
 
 ---
