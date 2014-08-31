@@ -6,5 +6,6 @@
   
 - What's the different between require and require_relative?
 
+  https://practicingruby.com/articles/ways-to-load-code
 
 ## Chapter 2
