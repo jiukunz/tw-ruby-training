@@ -25,3 +25,4 @@
 | 高瑗 | 3 | https://github.com/mixiaopa/RubyTraining |
 | 刘菁 | 1 | https://github.com/lanmengyujing/FuzzBuzz |
 | 刘菁 | 2 | https://github.com/lanmengyujing/ruby-training |
+| 申彤 | 5 | https://github.com/Teresast/RubyPractise |
