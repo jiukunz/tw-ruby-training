@@ -19,3 +19,4 @@ RubyTraining
 | Object-Oriented Programming in Ruby | [slides/#/4](https://jiukunz.github.io/tw-ruby-training/slides/#/4) | [4-ruby-oo.md](https://github.com/jiukunz/tw-ruby-training/blob/master/slides/contents/4-ruby-oo.md) |
 | Meta Programming | [slides/#/5](https://jiukunz.github.io/tw-ruby-training/slides/#/5) | [5-ruby-meta-programming.md](https://github.com/jiukunz/tw-ruby-training/blob/master/slides/contents/5-ruby-meta-programming.md) |
 | Rack and Sinatra | [slides/#/6](https://jiukunz.github.io/tw-ruby-training/slides/#/6) | [6-rack-and-sinatra.md](https://github.com/jiukunz/tw-ruby-training/blob/master/slides/contents/6-rack-and-sinatra.md) |
+| REST and RESTful Web API | [slides/#/7](https://jiukunz.github.io/tw-ruby-training/slides/#/7) | [7-rest-and-restful-web-api.md](https://github.com/jiukunz/tw-ruby-training/blob/master/slides/contents/7-rest-and-restful-web-api.md) |
