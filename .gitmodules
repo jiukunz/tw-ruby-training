@@ -1,0 +1,3 @@
+[submodule "Workshop"]
+	path = Workshop
+	url = git@github.com:tcz001/RubyConf-WorkShop.git
