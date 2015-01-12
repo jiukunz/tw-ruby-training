@@ -201,7 +201,6 @@ class MyClass
 end
 obj = MyClass.new
 obj.my_method # => [:v3]
-obj.my_method # => [:v3]
 local_variables # => [:v1, :obj]
 
 ```
@@ -334,7 +333,7 @@ end
 
 ## Homework
 
-> Read Metaprogramming Ruby Chapter 1, 2 and 3 in 1 weeks
+> Read Metaprogramming Ruby Chapter 2, 2 and 3 in 1 week
 
 ---
 
