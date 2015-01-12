@@ -8,9 +8,9 @@
 
 ---
 
-## Meta Programming
+# Meta Programming
 
-- *Metaprogramming is writing code that writes code.*
+####is writing code that writes code.
 
 ---
 
@@ -49,9 +49,9 @@ puts person.name # => ruby
 
 ---
 
-## Meta Programming
+# Meta Programming
 
-- *Metaprogramming is writing code that manipulates language constructs at runtime.*
+####is writing code that manipulates language constructs at runtime.
 
 ---
 
@@ -108,8 +108,8 @@ send(:puts, 123) => 123
 - Check if respond specific method
 
 ```ruby
-'Qi Xi'.respond_to?(:chun_ye_men) # => false
-'Mao Chao'.respond_to?(:handsome) #=> true
+'Jia Jie'.respond_to?(:banana) # => true
+'Jie Ge'.respond_to?(:ruan_mei_zi) # => false
 ```
 
 ---
@@ -120,12 +120,12 @@ send(:puts, 123) => 123
 - If you override :method_missing, you never get NoMethodError
 
 ```ruby
-class Lawyer
+class BA
   def method_missing(method, *args)
     puts "You called: #{method}(#{args.join(', ')})"
   end
 end
-Lawyer.new.blah_blah # => You called: blah_blah()
+BA.new.blah_blah # => You called: blah_blah()
 
 ```
 
@@ -169,7 +169,7 @@ Class.class #=> Class
 
 ## Closure
 
-- You can reference variable in other environment(binding in ruby)
+- You can reference variable in other environment using block(refer binding in ruby)
 
 ```ruby
 def my_method
@@ -242,18 +242,18 @@ end
 ```
 ---
 
-## Changing Scope
+## Not Changing Scope
 
-- :define_method, Module.new and Class.new will change scope
+- :define_method will not change scope, because it uses block
 
 ```ruby
 v1 = 1
 class MyClass   # SCOPE GATE: entering class
   v2 = 2
 
-  define_method :my_method do # SCOPE GATE: entering def
+  define_method :my_method do # Remine class scope
     v3 = 3
-  end           # SCOPE GATE: leaving def
+  end
 
 end             # SCOPE GATE: leaving class
 
@@ -304,22 +304,51 @@ add_method_to String
 
 ## Practice Time
 
-- Implement following 3 methods
+- Implement following 2 methods
+- refernece: instance_variable_set, instance_variable_get
 
 ```ruby
 class Girl
-  def self.my_attr_assessor; end
   def self.my_attr_writer; end
   def self.my_attr_reader; end
-  my_attr_assessor :name
-  my_attr_writer :age
-  my_attr_reader :gender
 
-  def initialize()
-    self.gender = 'female'
+  my_attr_writer :gender
+  my_attr_reader :name
+
+  def initialize
+    @name = 'jie_ge'
+    @gender = 'han_zi'
   end
 end
 
+```
+
+---
+
+## Answer
+
+```ruby
+class Girl
+  def self.my_attr_reader(key)
+    define_method "#{key}" do
+      self.instance_variable_get("@#{key}")
+    end
+  end
+
+  def self.my_attr_writer(key)
+    define_method "#{key}=" do |value|
+      self.instance_variable_set("@#{key}", value)
+    end
+  end
+
+  my_attr_writer :gender
+  my_attr_reader :name
+
+  def initialize
+    @name = "jie_ge"
+    @gender = "han_zi"
+  end
+end
 ```
 
 ---
@@ -333,7 +362,7 @@ end
 
 ## Homework
 
-> Read Metaprogramming Ruby Chapter 2, 2 and 3 in 1 week
+> Finish Metaprogramming Ruby Chapter 1, 2 and 3 in 1 week
 
 ---
 
