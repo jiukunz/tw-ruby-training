@@ -236,24 +236,25 @@ class MyClass
   v2 = 2
 
   define_method :my_method do # SCOPE GATE ?
-    v3 = 3
+    v3 = 3 # can we use v2 here?
   end
 end
 ```
 ---
 
-## Not Changing Scope
+## Changing Scope
 
-- :define_method will not change scope, because it uses block
+- :define_method will change scope, but it contains closure
 
 ```ruby
 v1 = 1
 class MyClass   # SCOPE GATE: entering class
   v2 = 2
 
-  define_method :my_method do # Remine class scope
+  define_method :my_method do # SCOPE GATE: entering method class
+    v2 = 2 # we can use v2 because of closure  
     v3 = 3
-  end
+  end # SCOPE GATE: entering method class
 
 end             # SCOPE GATE: leaving class
 
@@ -302,6 +303,27 @@ add_method_to String
 
 ---
 
+## instance method, class method
+
+```ruby
+String.class_eval do
+  def foo #instance method for String.new
+    "foo"
+  end
+end
+String.new.foo # => 'foo'
+
+String.instance_eval do
+  def bar #class method for String class
+    "bar"
+  end
+end
+
+String.bar # => "bar"
+
+```
+
+---
 ## Practice Time
 
 - Implement following 2 methods
