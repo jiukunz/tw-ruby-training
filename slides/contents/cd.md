@@ -93,3 +93,7 @@ read SSH reference and share in your team
 - http://www.zodiacmedia.co.uk/blog/capistrano-3-tutorial-series-part-1
 - http://www.zodiacmedia.co.uk/blog/capistrano-3-tutorial-series-part-2
 - http://www.zodiacmedia.co.uk/blog/capistrano-3-tutorial-series-part-3
+
+---
+## Go CI Reference
+- http://thoughtworks.com/products/docs/go/14.2.0/help
