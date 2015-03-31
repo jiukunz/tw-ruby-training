@@ -66,6 +66,7 @@
 - pull code
 - bundle install
 - precompile assets
+- migrate DB
 - restart app server
 
 ---
