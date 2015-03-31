@@ -1,4 +1,4 @@
-# Continues Delivery
+# Continuous Delivery
 
 ---
 ##Process
