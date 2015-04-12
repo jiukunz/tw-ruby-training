@@ -19,16 +19,17 @@ Avoid slow client, push it to nginx.
 ---
 ## What can nginx do
 
-1.buffer all HTTP request
-2.be fast
-3.efficiently handle slow client
-4.should server static file
+1. buffer all HTTP request
+2. be fast
+3. efficiently handle slow client
+4. should server static file(optional)
+
 ---
 ## How to setup a working website
-1.buy a machine & deploy
-2.buy a domain
-3.find a dns server(dnspod.cn)
-4.备案 only in China
+1. buy a machine & deploy
+2. buy a domain
+3. find a dns server(dnspod.cn)
+4. 备案 only in China
 ---
 ## DNS
 join.thoughtworkschina.com
