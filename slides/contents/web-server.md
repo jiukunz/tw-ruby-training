@@ -33,10 +33,12 @@ Avoid slow client, push it to nginx.
 ---
 ## DNS
 join.thoughtworkschina.com
+
 0. find root server(root domain is .)
 1. root server response com server(top level domain is .com)
 2. com server response thoughtworkschina server(thoughtworkschina is second level domain)
 3. thoughtworkschina server response 121.40.137.240(join.* is sub domain)
+
 video https://www.youtube.com/watch?v=2ZUxoi7YNgs
 ---
 ## IP Address
@@ -53,8 +55,11 @@ video https://www.youtube.com/watch?v=2ZUxoi7YNgs
 ## Homework -- Linux Videos
 
 [The Code Linux](http://v.youku.com/v_show/id_XMTI3MDQ1NjM2.html)
+
 [Revolution OS](http://v.youku.com/v_show/id_XNjQ0ODk2Nzgw.html)
+
 [Code Rush](http://v.youku.com/v_show/id_XNjA2NDI2MTUy.html)
+
 鸟哥私房菜，能看多少是多少
 
 ---
